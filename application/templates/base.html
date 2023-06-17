@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/styles.css' %}" />
+        <link rel="shortcut icon" href="/static/img/ch.png" type="image/png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <section>
+            <header class="header style">                
+                <nav>
+                    <ul class="main">
+                        <li><a href="{% url 'home' %}"><img src="/static/img/ch.png"></a></li>
+                        <li><a href="{% url 'home' %}" class="header_h"><h1>Детский сад "Фантазия"</h1></a></li>
+                    </ul>
+                </nav>
+                <nav>
+                    <ul class="menu">
+                        <li><a href="{% url 'child_app' %}">Запись в наш детский сад</a></li>
+                        <li><a href="{% url 'teacher_app' %}">Работа в нашем детском саду</a></li>
+                        <li><a href="{% url 'question' %}">Ваши вопросы</a></li>          
+                        {% if request.user.is_authenticated %}
+                        <li><p>{{user.username}}|<a href="{% url 'logout' %}">Выйти</a></p></li>
+                        {% else %}
+                        <li><a href="{% url 'register' %}">Регистрация</a></li>
+                        <li><a href="{% url 'login' %}">Войти</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </header>
+        </section>
+        <section class="content_wrap style">
+            <h2 class="label">{{title}}</h2>
+            {% block content%}
+            {% endblock content %}
+        </section>
+        <section class="footer_wrap style">
+            <footer>
+                <p>Контакты</p>
+                <p>ВК:</p>
+                <p>Номер телефона:</p>
+                <p>Email:</p>
+            </footer>
+        </section>                  
+    </body>
+</html>

@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block content%}
+{% if request.user.is_authenticated %}
+{% else %}
+<meta http-equiv="Refresh" content="0; {% url 'login' %}">
+{% endif %}
+<table class="data-table">
+    <thead>
+        <tr>
+            <th colspan="6">Ваши дети</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr> 
+            <td>Ф.И.О.</td>
+            <td>Дата рождения</td>
+            <td>Родители/опекуны</td>
+            <td>Телефон родителя/опекуна</td>
+            <td>Направленость обучения</td>
+            <td>Услуги специалиста</td>
+        </tr>
+        {% for child in children %}
+        <tr>
+            <td>{{child.full_name}}</td>
+            <td>{{child.bdd}}</td>
+            <td>{{child.parent_full_name}}</td>
+            <td>{{child.phone_number}}</td>
+            <td>{{child.orientation_of_education}}</td>
+            <td>{{child.specialist_service}}</td>
+        </tr>
+        {% endfor %}      
+    </tbody>
+</table>    
+<table class="data-table">
+    <thead>
+        <tr>
+            <th colspan="2">Кружки</th>
+        </tr>
+    </thead>
+    <tbody>   
+        <tr> 
+            <td>Рисование</td>      
+            <td>
+                {% for child in children %}
+                    {% if child.art_club == True %}
+                        <p>{{child.full_name}}</p>
+                    {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>Танцы</td>
+            <td>
+                {% for child in children %}
+                    {% if child.dance_club == True %}
+                        <p>{{child.full_name}}</p>
+                    {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>Музыкальный кружок</td>
+            <td>
+                {% for child in children %}
+                    {% if child.music == True %}
+                        <p>{{child.full_name}}</p>
+                    {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>Физкультурный кружок</td>
+            <td>
+                {% for child in children %}
+                    {% if child.physical_culture_club == True %}
+                        <p>{{child.full_name}}</p>
+                    {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>Рукоделие</td>
+            <td>
+                {% for child in children %}
+                    {% if child.physical_culture_club == True %}
+                        <p>{{child.full_name}}</p>
+                    {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>Ротоботехника</td>
+            <td>
+                {% for child in children %}
+                    {% if child.robotics == True %}
+                        <p>{{child.full_name}}</p>
+                    {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>Английский язык</td>
+            <td>
+                {% for child in children %}
+                    {% if child.foreign_languages == True %}
+                        <p>{{child.full_name}}</p>
+                    {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+    </tbody>
+</table>                                
+{% endblock content%}
