@@ -23,7 +23,8 @@
                     <ul class="menu">
                         <li><a href="{% url 'child_app' %}">Запись в наш детский сад</a></li>
                         <li><a href="{% url 'teacher_app' %}">Работа в нашем детском саду</a></li>
-                        <li><a href="{% url 'question' %}">Ваши вопросы</a></li>          
+                        <li><a href="{% url 'question' %}">Ваши вопросы</a></li>
+                        <li><a href="{% url 'teachers' %}">Педагоги</a></li>          
                         {% if request.user.is_authenticated %}
                             <li><a href="{% url 'children' %}">Личный кабинет</a></li>  
                             {% if request.user.status == 'Педагог' %}
