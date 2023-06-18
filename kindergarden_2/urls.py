@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from application.views import *
 from users.views import *
+from teacher.views import *
 
 admin.site.site_header = 'Детский садик "Фантазия"'
 admin.site.index_title = 'Детский садик "Фантазия" - Администрирование'
@@ -19,4 +20,6 @@ urlpatterns = [
     path('group', group, name='group'),
     path('children', children, name='children'),
     path("logout", logout_user, name = "logout"),
+
+    path('teachers', Teachers.as_view(), name='teachers')
 ]
