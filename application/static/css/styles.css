@@ -32,14 +32,14 @@ h3 {
 
 .content_wrap{
     margin: 20px auto;
-    width: 800px;
+    width: 1000px;
     min-height: 695px;
 }
 
 .content {
     margin: 0 auto;
     box-sizing: border-box;
-    max-width: 600px;
+    max-width: 800px;
 }
 
 .footer_wrap{
@@ -109,6 +109,10 @@ td {
     height: 40px;
 }
 
+.column {
+    width: 150px;
+}
+
 thead, tfoot {
     background-color: plum;
     color: black;
@@ -123,7 +127,7 @@ form {
 .data-table{
     text-align: center;
     margin: 20px auto;
-    width: 750px;
+    width: 900px;
 }
 
 .data-table td{

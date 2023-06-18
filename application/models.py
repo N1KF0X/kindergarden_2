@@ -95,9 +95,9 @@ class ChildApplication(AdaptiveApplication):
         ('РКРТ',"Развитие конструирования и ручного труда"),
     ]
     specialist_services = [
-        ('Логопед-дефектолог',"Логопед-дефектолог"),
-        ('Сурдопедагог',"Сурдопедагог (Нарушение слуха)"),
-        ('Тифлопедагог',"Тифлопедагог (Нарушение зрения)"),
+        ('ЛД',"Логопед-дефектолог"),
+        ('С',"Сурдопедагог (Нарушение слуха)"),
+        ('Т',"Тифлопедагог (Нарушение зрения)"),
     ]
 
     art_club = models.BooleanField(verbose_name="Юный художник (Рисование)")
@@ -115,7 +115,7 @@ class ChildApplication(AdaptiveApplication):
     )
     specialist_service = models.CharField(
         verbose_name='Услуги специалиста',
-        max_length=50,
+        max_length=2,
         choices=specialist_services,
     )
 

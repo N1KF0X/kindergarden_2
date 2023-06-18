@@ -25,10 +25,14 @@
                         <li><a href="{% url 'teacher_app' %}">Работа в нашем детском саду</a></li>
                         <li><a href="{% url 'question' %}">Ваши вопросы</a></li>          
                         {% if request.user.is_authenticated %}
-                        <li><p>{{user.username}}|<a href="{% url 'logout' %}">Выйти</a></p></li>
+                            <li><a href="{% url 'children' %}">Личный кабинет</a></li>  
+                            {% if request.user.status == 'Педагог' %}
+                                <li><a href="{% url 'group' %}">Группа</a></li>  
+                            {% endif %}
+                            <li><p>{{user.username}}|<a href="{% url 'logout' %}">Выйти</a></p></li>
                         {% else %}
-                        <li><a href="{% url 'register' %}">Регистрация</a></li>
-                        <li><a href="{% url 'login' %}">Войти</a></li>
+                            <li><a href="{% url 'register' %}">Регистрация</a></li>
+                            <li><a href="{% url 'login' %}">Войти</a></li>
                         {% endif %}
                     </ul>
                 </nav>
