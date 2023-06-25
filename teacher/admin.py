@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import *
+
+@admin.register(Teacher)
+class CustomUserAdmin(admin.ModelAdmin):
+    list_display = ['full_name', 'specialization', 'education', 'experience']
+    list_per_page = 10

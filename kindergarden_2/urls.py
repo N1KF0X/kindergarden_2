@@ -3,6 +3,8 @@ from django.urls import path
 from application.views import *
 from users.views import *
 from teacher.views import *
+from django.conf.urls.static import static
+from kindergarden_2 import settings
 
 admin.site.site_header = 'Детский садик "Фантазия"'
 admin.site.index_title = 'Детский садик "Фантазия" - Администрирование'
@@ -23,3 +25,9 @@ urlpatterns = [
 
     path('teachers', Teachers.as_view(), name='teachers')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root = settings.MEDIA_ROOT,
+    )
