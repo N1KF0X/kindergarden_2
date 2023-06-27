@@ -41,11 +41,11 @@
 5. Используйте команду "python manage.py runserver"
 6. Введите в адресную строку "http:1270.0.1:8000/"
 
-Для подробной информации перейдите по ссылке https://github.com/N1KF0X/kindergarten/wiki/0.-Руководство-пользователя
+Для подробной информации перейдите по ссылке [Руководство пользователя](https://github.com/N1KF0X/kindergarten/wiki/0.-Руководство-пользователя)
 
 ## Документация 
 **Пользовательская документация:**
-* [Руководство пользователя]()
+* [Руководство пользователя](https://github.com/N1KF0X/kindergarden_2/raw/master/resources/documents/Руководство%20пользователя.docx)
 
 **Документация разработки:**
 * [Техническое задание](https://github.com/N1KF0X/kindergarten/raw/master/Resources/DOKI/TZ.docx)
